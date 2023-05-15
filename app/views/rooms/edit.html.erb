@@ -1,0 +1,49 @@
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        施設情報の編集
+      </h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <%= form_with model:@room do |f| %>
+          <div class="field">
+            <%= f.label :施設名, class: "label" %>
+            <%= f.text_field :name, :placeholder => "ルーム名を入力", class: "input" %>
+          </div>
+        
+          <div class="field">
+            <%= f.label :施設詳細, class: "label" %>
+            <%= f.text_area :introduction, :placeholder => "施設の詳細を入力", class: "textarea" %>
+          </div>
+        
+          <div class="field">
+            <%= f.label :料金, class: "label" %>
+            <%= f.text_field :fee, :placeholder => "一日あたりの料金を入力", class: "input" %>
+          </div>
+        
+          <div class="field">
+            <%= f.label :住所, class: "label" %>
+            <%= f.text_field :address, :placeholder => "住所を入力", class: "input" %>
+          </div>
+        
+          <div class="field">
+            <%= f.label :施設画像, class: "label" %>
+            <%= f.file_field :image, class: "input" %>
+          </div>
+           
+          <div class="actions">
+            <%= f.submit "保存", class: "button is-success" %>
+            <%= link_to "キャンセル",:back, class: "button" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
