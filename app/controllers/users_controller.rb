@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def update
     if current_user.update(user_params)
       flash[:notice] = "更新しました"
-      redirect_to root_path
+      redirect_to users_show_path
     else
       redirect_to edit_user_path(current_user)
     end
@@ -27,6 +27,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :profile, :image)
+    params.require(:user).permit(:username, :profile, :image)
   end
 end
