@@ -1,0 +1,65 @@
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        プロフィール
+      </h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="columns is-centered">
+        <div class="column is-3">
+        <article class="panel is-link">
+          <h2 class="panel-heading">
+            設定
+          </h2>
+          <div class="panel-block">
+            <p class="control">
+              プロフィール
+            </p>
+          </div>
+            <%= link_to "アカウント", home_show_path, class: "panel-block"%>
+        </article>
+      </div>
+          <div class="column is-4">
+          <td>アイコン画像</td>
+            <% if @user.image.attached? %>
+              <figure class="image is-128x128"  style="margin-left: auto; margin-right: auto;">
+              <%= image_tag @user.avatar, class: "avatar is-rounded" %>
+              </figure>
+            <% else %>
+              <figure class="image is-128x128"  style="margin-left: auto; margin-right: auto;">
+              <%= image_tag "no-image.png", class: "avatar is-rounded" %>
+              </figure>
+            <% end %>
+          </div>
+          <div class="column is-8">
+            <table class="table is-fullwidth">
+              <tr>
+                <td>名前</td>
+                <td class="is-size-4">
+                  <strong><%= @user.username %></strong>
+                </td>
+              </tr>
+              <tr>
+                <td>自己紹介</td>
+                <td>
+                  <%= @user.profile %>
+                </td>
+              </tr>
+              
+                <% if @user == current_user %>
+                    <%= link_to "編集", users_edit_path(@user), class: "button is-primary" %>
+                <% end %>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

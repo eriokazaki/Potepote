@@ -14,3 +14,26 @@
  *= require_self
  */
  @import "bulma";
+
+
+ .notification:not(:last-child){
+	margin-bottom: 0;
+}
+
+.avatar {
+	border-radius: 50%;
+}
+
+.dropdown {
+	margin-top: 15px;
+    margin-right: 130px;
+}
+
+.icon {
+	margin-right: 30px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}

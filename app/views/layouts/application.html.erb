@@ -39,8 +39,8 @@
     <% if user_signed_in? %>
       <div id="navbarExampleTransparentExample" class="navbar-menu">
         <div class="navbar-end">
-          <% if current_user.avatar.attached? %>
-            <p><%= image_tag current_user.avatar, class: "icon", style: "border-radius: 50%; width: 70px; height: 70px; object-fit:cover;" %></p>
+          <% if current_user.image.attached? %>
+            <p><%= image_tag current_user.image, class: "icon", style: "border-radius: 50%; width: 70px; height: 70px; object-fit:cover;" %></p>
           <% else %>
             <p><%= image_tag 'no-image.png',class: "icon", style: "border-radius: 50%; width: 70px; height: 70px; object-fit:cover;" %></p>
           <% end %>
