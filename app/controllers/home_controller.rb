@@ -1,7 +1,14 @@
 class HomeController < ApplicationController
-  def index
-  end
 
-  def show
-  end
+    def index
+      @user = current_user
+    end
+
+    def show
+      @user = current_user
+    end
+
+   
+    private
+
 end
