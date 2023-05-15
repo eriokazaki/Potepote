@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :users
   get 'home/show'
-  get '/mypage' => 'users#mypage'
+  
   post 'users/:id/edit' => 'users#show'
-
+  get '/mypage' => 'users#mypage'
 
 end
