@@ -6,6 +6,6 @@ validates :fee , presence: true , numericality: { greater_than_or_equal_to: 0 }
 
 belongs_to :user , optional: true
 
-
+has_many :reservations 
 
 end

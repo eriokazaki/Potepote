@@ -10,30 +10,30 @@
 
 <section class="section">
   <div class="container">
-  <%= link_to "← 戻る",:back %>
-    <div class="columns is-centered">
-      <div class="column is-7">
-        <div class="card">
+    <%= link_to "← 戻る",:back %>
+      <div class="columns is-centered">
+        <div class="column is-6">
+          <div class="card">
             <div class="card-image">
                 <% if @room.image.attached? %>
-                <figure class="image is-4by3">
+                  <figure class="image is-4by3">
                     <%= image_tag @room.image %>
-                </figure>
+                  </figure>
                 <% else %>
-                <figure class="image is-4by3">
+                  <figure class="image is-4by3">
                     <%= image_tag "default-room.png" %>
-                </figure>
+                  </figure>
                 <% end %>
             </div>
 
             <div class="card-content">
                 <div class="media">
-                <div class="media-content">
+                  <div class="media-content">
                     <p class="title is-4"><%= @room.name %></p>
-                </div>
+                  </div>
                 </div>
                 <div class="content">
-                <table class="table is-narrow">
+                  <table class="table is-narrow">
                     <tr>
                     <td><%= simple_format @room.address %></td>
                     </tr>
@@ -43,16 +43,38 @@
                     <tr>
                     <td><%= simple_format @room.introduction %></td>
                     </tr>
-                </table>
+                  </table>
                 <% if @room.user.id == current_user.id %>
                     <%= link_to "編集", edit_room_path(@room), class: "button is-success" %>
                 <% end %>
                 </div>
+    
+          <div class="card">
+            <%= form_with model: @reservation, method: :post , url: confirm_reservations_path, local: true do |f| %>
+          <div class="card-content">
+            <%= f.label :チェックイン日 %>
+            <%= f.date_field :checkin_at %>
+          </div>
+          <div class="card-content">
+            <%= f.label :チェックアウト日 %>
+            <%= f.date_field :checkout_at %>
+          </div>
+          <div class="card-content">
+            <%= f.label :人数 %>
+            <%= f.text_field :person_count, :placeholder => "0人" %>
+          </div>
+        
+            <%= f.hidden_field :room_id, value: @room.id %>
+            <%= f.hidden_field :user_id, value: @user.id %>
+        
+            <div class="actions">
+            <%= f.submit "予約する", class: "button is-success" %>
             </div>
+          <% end %> 
+          </div>
+        </div>
         </div>
       </div>
-
-      
-    </div>
-  </div>
+    </div> 
 </section>
+  
