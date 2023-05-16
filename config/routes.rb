@@ -10,6 +10,13 @@ Rails.application.routes.draw do
   post 'users/:id/edit' => 'users#show'
   get '/mypage' => 'users#mypage'
 
+  # 検索のために必要
+  resources :rooms do
+    collection do
+      get 'search'
+    end
+  end
+
   resources :reservations do
     collection do
       post 'confirm'

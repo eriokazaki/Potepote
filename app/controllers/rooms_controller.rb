@@ -1,5 +1,7 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!, except: [:show] 
+  before_action :set_q, only: [:index, :search]
+
 
   def index
     @user = current_user
@@ -50,8 +52,18 @@ class RoomsController < ApplicationController
     redirect_to :rooms
   end
   
+  def search
+    @results = @q.result
+    @numbers = @q.result.count
+  end
+
   private
   def room_params
     params.require(:room).permit(:name, :introduction, :fee, :address, :image, :room_id).merge(user_id: current_user.id)
   end
+
+  def set_q
+    @q = User.ransack(params[:q])
+  end
+
 end
