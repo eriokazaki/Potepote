@@ -8,6 +8,7 @@
   </div>
 </section>
 
+<section class="section">
   <table class="reservation_ichiran">
     <thead>
         <tr>
@@ -22,6 +23,19 @@
     <tbody>
         <% @reservations.each do |reservation| %>
         <tr>
+            <td>
+              <div>
+                <% if reservation.room.image.attached? %>
+                <figure class="image is-96x96">
+                    <%= image_tag reservation.room.image %>
+                </figure>
+                <% else %>
+                <figure class="image is-96x96">
+                    <%= image_tag 'default-room.png' %>
+                </figure>
+                <% end %>
+              </div>
+            </td>       
             <td><%= link_to reservation.room.name , room_path(reservation), class: "has-text-link" %></td>
             <td><%= reservation.room.introduction %></td>
             <td>¥<%= reservation.total_price %></td>
@@ -35,3 +49,4 @@
         <% end %>
     </tbody>
   </table>
+</section>

@@ -49,29 +49,29 @@
                 <% end %>
                 </div>
     
-          <div class="card">
-            <%= form_with model: @reservation, method: :post , url: confirm_reservations_path, local: true do |f| %>
-          <div class="card-content">
-            <%= f.label :チェックイン日 %>
-            <%= f.date_field :checkin_at %>
-          </div>
-          <div class="card-content">
-            <%= f.label :チェックアウト日 %>
-            <%= f.date_field :checkout_at %>
-          </div>
-          <div class="card-content">
-            <%= f.label :人数 %>
-            <%= f.text_field :person_count, :placeholder => "0人" %>
-          </div>
-        
-            <%= f.hidden_field :room_id, value: @room.id %>
-            <%= f.hidden_field :user_id, value: @user.id %>
-        
-            <div class="actions">
-            <%= f.submit "予約する", class: "button is-success" %>
+            <div class="card">
+              <div class="has-background-danger-light">
+              <%= form_with model: @reservation, method: :post , url: confirm_reservations_path, local: true do |f| %>
+              <div class="card-content">
+                <%= f.label :チェックイン日 %>
+                <%= f.date_field :checkin_at %>
+              </div>
+              <div class="card-content">
+                <%= f.label :チェックアウト日 %>
+                <%= f.date_field :checkout_at %>
+              </div>
+              <div class="card-content">
+                <%= f.label :人数 %>
+                <%= f.text_field :person_count, :placeholder => "0人" %>
+              </div>
+                <%= f.hidden_field :room_id, value: @room.id %>
+                <%= f.hidden_field :user_id, value: @user.id %>
+                <div class="actions">
+                <%= f.submit "予約する", class: "button is-success" %>
+                </div>
+              <% end %> 
+              </div>
             </div>
-          <% end %> 
-          </div>
         </div>
         </div>
       </div>

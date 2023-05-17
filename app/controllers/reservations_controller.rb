@@ -3,12 +3,13 @@ class ReservationsController < ApplicationController
 
   def index
     @user = current_user
-    @reservations = current_user.reservations
+    @reservations = Reservation.where(user_id: current_user.id).includes(:user).order("created_at DESC")
   end
 
   def new
     @user = current_user
     @reservation = Reservation.new
+    @room = Room.find(params[:room_id])
   end
 
   def confirm
@@ -44,11 +45,6 @@ class ReservationsController < ApplicationController
       flash.now[:alert] = "予約に失敗しました"
       render "rooms/show"
     end
-  end
-
-  def show
-    @user = current_user
-    @reservations = Reservation.all
   end
 
   def edit
