@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
-
+  before_action :set_q, only: [:index, :search]
+  
     def index
       @user = current_user
       @q = Room.ransack(params[:q])

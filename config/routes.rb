@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
   get 'reservations/index'
+  get 'users/sogn_out' => 'devise/sessions#destroy'
   resources :rooms
   devise_for :users
-  get 'users/show'
+
   root to: "home#index"
-  resources :users
+  
   get 'home/show'
   
   post 'users/:id/edit' => 'users#show'
   get '/mypage' => 'users#mypage'
-
+  resources :users, only: [:show, :edit, :update]
   # 検索のために必要
   resources :rooms do
     collection do

@@ -36,7 +36,6 @@ class RoomsController < ApplicationController
 
   def update
     @room = Room.find(params[:id])
-
     if @room.update(room_params)
       flash[:notice] = "宿泊施設を更新しました"
       redirect_to @room
@@ -63,7 +62,7 @@ class RoomsController < ApplicationController
   end
 
   def set_q
-    @q = User.ransack(params[:q])
+    @q = Room.ransack(params[:q])
   end
 
 end
