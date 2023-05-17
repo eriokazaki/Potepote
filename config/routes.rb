@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'reservations/index'
   get 'users/sogn_out' => 'devise/sessions#destroy'
+  get 'rooms/search' => 'rooms#search'
   resources :rooms
   devise_for :users
 

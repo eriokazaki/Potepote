@@ -9,7 +9,6 @@ class ReservationsController < ApplicationController
   def new
     @user = current_user
     @reservation = Reservation.new
-    
   end
 
   def confirm

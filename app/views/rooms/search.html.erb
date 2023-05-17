@@ -1,0 +1,64 @@
+<section class="hero is-success">
+  <div class="hero-body">
+    
+    <div class="container">
+    <table>
+    <th>
+      <%= search_form_for @q, url: search_rooms_path do |f| %>
+      <%= f.search_field :address_cont, autofocus: true, autocomplete: "address", class: 'input', placeholder: 'エリア名を入力' %>
+      <% end %>
+    </th>
+    <th>
+      <%= search_form_for @q, url: search_rooms_path do |f| %>
+      <%= f.search_field :name_or_introduction_cont, class: 'input', placeholder: 'キーワード名を入力'  %>
+    </th>
+    <th>
+      <%= f.submit '検索', class: "button is-warning" %>
+      <% end %>
+    </th>
+    </table>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-12">
+      <h2><%= @results.count %>件が見つかりました</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>画像</th>
+            <th>施設名</th>
+            <th>詳細</th>
+            <th>料金</th>
+            <th>住所</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @results.each do |room| %>
+            <tr>
+                <td>
+                  <div class="room_image">
+                    <% if room.image.attached? %>
+                      <%= image_tag room.image.url %>
+                    <% else %>
+                      <%= image_tag 'default-room.png' %>
+                    <% end %>
+                  </div>
+                </td>
+                <td><%= link_to room.name, room_path(room), class: "has-text-link" %></td>
+                <td><%= room.introduction %></td>
+                <td>¥<%= room.fee %></td>
+                <td><%= room.address %></td>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</section>
+

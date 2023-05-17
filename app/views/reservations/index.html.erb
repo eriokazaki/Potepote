@@ -22,7 +22,7 @@
     <tbody>
         <% @reservations.each do |reservation| %>
         <tr>
-            <td><%= reservation.room.name %></td>
+            <td><%= link_to reservation.room.name , room_path(reservation), class: "has-text-link" %></td>
             <td><%= reservation.room.introduction %></td>
             <td>¥<%= reservation.total_price %></td>
             <td><%= reservation.checkin_at.strftime("%Y/%m/%d") %></td>
