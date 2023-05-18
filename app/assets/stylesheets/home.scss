@@ -1,3 +1,41 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.FirstView {
+    background-image: url(https://rails-02-sample.herokuapp.com/assets/home/cover-lg.jpg);
+    background-size: cover;
+    background-position: 50%;
+    height: 750px;
+    margin-bottom: 180px;
+    padding-top: 80px;
+    width: 100%;
+}
+
+.container {
+    max-width: 1440px;
+    padding: 0 32px;
+}
+
+.FirstView_title {
+    color: #fff;
+    font-family: Lato,sans-serif;
+    font-size: 84px;
+    font-weight: 400;
+    line-height: 101px;
+    margin-bottom: 48px;
+    text-align: center;
+    word-break: keep-all;
+}
+
+.Recommend_title {
+    border-bottom: 3px solid #ff7757;
+    font-size: 44px;
+    line-height: 66px;
+    margin-bottom: 140px;
+    padding-bottom: 15px;
+    width: fit-content;
+}
+
+.RecommendArea-tokyo {
+    background-image: url("tokyo.png");
+}
