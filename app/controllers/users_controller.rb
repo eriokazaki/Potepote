@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def update
     if current_user.update(user_params)
       flash[:notice] = "更新しました"
-      redirect_to users_show_path
+      redirect_to user_path
     else
       redirect_to edit_user_path(current_user)
     end
