@@ -28,8 +28,9 @@ class ReservationsController < ApplicationController
     if @reservation.person_count == nil
       redirect_to @room, alert:"正しい人数を入力してください" and return
     end
-    @total_day = (@reservation.checkout_at - @reservation.checkin_at).to_i 
-    @total_price = (@total_day * @reservation.person_count * @room.fee)
+    if @reservation.person_count <= 0
+      redirect_to @room, alert:"正しい人数を入力してください" and return
+    end
   end
 
 
@@ -46,6 +47,7 @@ class ReservationsController < ApplicationController
       render "rooms/show"
     end
   end
+
 
   def edit
     @rooms = Room.all
