@@ -67,3 +67,6 @@ gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 
 gem 'pry-rails'
+
+# 検索機能
+gem 'ransack'
