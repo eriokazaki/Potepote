@@ -43,7 +43,7 @@
                 <td>
                   <div class="room_image">
                     <% if room.image.attached? %>
-                      <%= image_tag room.image.url %>
+                      <%= image_tag room.image %>
                     <% else %>
                       <%= image_tag 'default-room.png' %>
                     <% end %>
