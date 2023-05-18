@@ -33,7 +33,6 @@ class ReservationsController < ApplicationController
     end
   end
 
-
   def create
     @room = Room.find(params[:reservation][:room_id])
     @user = User.find_by(params[:reservation][:room_id])
@@ -47,7 +46,6 @@ class ReservationsController < ApplicationController
       render "rooms/show"
     end
   end
-
 
   def edit
     @rooms = Room.all
